@@ -29,10 +29,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
 <resources>
-    <color name="highlight">#f41e26</color>
-    <color name="lowlight">#650101</color>
-    <color name="grey">#e7e7e7</color>
+    <color name="highlight">#ff4444</color>
+    <color name="lowlight">#e53935</color>
+    <color name="grey">#000000</color>
     <color name="disabled">#525252</color>
     <color name="disabled_gallery">#888888</color>
     <color name="disabled_knob">#575757</color>
+    <color name="actionbarcolor">#e53935</color>
+    <color name="spinner_back_color">#d4d4d4</color>
 </resources>

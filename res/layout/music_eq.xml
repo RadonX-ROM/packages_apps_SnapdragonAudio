@@ -33,22 +33,25 @@
             android:id="@+id/maxLevelText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_alignParentTop="true"
-        />
+            android:alpha="0.54"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black" />
         <TextView
             android:id="@+id/centerLevelText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_centerVertical="true"
-        />
+            android:alpha="0.54"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black" />
         <TextView
             android:id="@+id/minLevelText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_alignParentBottom="true"
-        />
+            android:alpha="0.54"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black" />
     </RelativeLayout>
 </LinearLayout>

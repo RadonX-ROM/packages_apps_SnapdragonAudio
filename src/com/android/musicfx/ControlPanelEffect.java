@@ -382,6 +382,7 @@ public class ControlPanelEffect {
                             } else {
                                 mPrevVirtStrength = vIStrength;
                                 virtualizerEffect.setStrength((short) 0);
+                                virtualizerEffect.setEnabled(false);
                             }
                         }
                         final BassBoost bassBoostEffect = getBassBoostEffect(audioSession);
@@ -396,6 +397,7 @@ public class ControlPanelEffect {
                             } else {
                                 mPrevBassBoostStrength = bBStrength;
                                 bassBoostEffect.setStrength((short) 0);
+                                bassBoostEffect.setEnabled(false);
                             }
                         }
                         final Equalizer equalizerEffect = getEqualizerEffect(audioSession);
@@ -478,11 +480,13 @@ public class ControlPanelEffect {
                         final Virtualizer virtualizerEffect = getVirtualizerEffect(audioSession);
                         if (virtualizerEffect != null) {
                             if (value) {
+                                virtualizerEffect.setEnabled(true);
                                 virtualizerEffect.setStrength((short) mPrevVirtStrength);
                                 enabled = true;
                             } else {
-                                mPrevVirtStrength = virtualizerEffect.getRoundedStrength();
-                                virtualizerEffect.setStrength((short) 0);
+                                if (virtualizerEffect.getStrengthSupported())
+                                    mPrevVirtStrength = virtualizerEffect.getRoundedStrength();
+                                virtualizerEffect.setEnabled(false);
                                 enabled = false;
                             }
                         }
@@ -493,11 +497,13 @@ public class ControlPanelEffect {
                         final BassBoost bassBoostEffect = getBassBoostEffect(audioSession);
                         if (bassBoostEffect != null) {
                             if (value) {
+                                bassBoostEffect.setEnabled(true);
                                 bassBoostEffect.setStrength((short) mPrevBassBoostStrength);
                                 enabled = true;
                             } else {
-                                mPrevBassBoostStrength = bassBoostEffect.getRoundedStrength();
-                                bassBoostEffect.setStrength((short) 0);
+                                if (bassBoostEffect.getStrengthSupported())
+                                    mPrevBassBoostStrength = bassBoostEffect.getRoundedStrength();
+                                bassBoostEffect.setEnabled(false);
                                 enabled = false;
                             }
                         }
@@ -600,8 +606,7 @@ public class ControlPanelEffect {
                     boolean on = prefs.getBoolean(Key.virt_enabled.toString(), VIRTUALIZER_ENABLED_DEFAULT);
                     if ((virtualizerEffect != null) && on) {
                         virtualizerEffect.setStrength((short) value);
-                        value = virtualizerEffect.getRoundedStrength();
-                    }
+                     }
                     break;
                 }
                     // BassBoost
@@ -610,8 +615,7 @@ public class ControlPanelEffect {
                     boolean on = prefs.getBoolean(Key.bb_enabled.toString(), BASS_BOOST_ENABLED_DEFAULT);
                     if ((bassBoostEffect != null) && on) {
                         bassBoostEffect.setStrength((short) value);
-                        value = bassBoostEffect.getRoundedStrength();
-                    }
+                     }
                     break;
                 }
                     // Equalizer

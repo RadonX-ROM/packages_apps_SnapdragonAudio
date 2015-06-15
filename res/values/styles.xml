@@ -29,4 +29,25 @@
         <item name="android:paddingTop">16dip</item>
         <item name="android:paddingBottom">16dip</item>
     </style>
+
+    <style name="EqTheme"
+           parent="@android:style/Theme.Material">
+        <item name="android:colorPrimary">@color/highlight</item>
+        <item name="android:colorPrimaryDark">@color/lowlight</item>
+        <item name="android:colorAccent">@color/highlight</item>
+        <!-- <item name="android:actionBarStyle">@style/CustomActionBar</item>
+        <item name="android:windowTranslucentStatus">true</item> -->
+    </style>
+
+   <!-- ActionBar styles -->
+    <style name="CustomActionBar"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#e53935</item>
+    </style>
+    <style name="spinnerTheme" parent="@android:style/Theme.Panel">
+
+    </style>
+    <style name="SpinnerItem" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+        <item name="android:textColor">#993399</item>
+    </style>
 </resources>

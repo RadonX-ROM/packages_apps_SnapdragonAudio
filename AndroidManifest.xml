@@ -34,7 +34,7 @@
         android:theme="@android:style/Theme.NoTitleBar">
         <activity
             android:name=".ActivityMusic"
-            android:theme="@android:style/Theme.Material.Light"
+            android:theme="@style/EqTheme"
             android:label="@string/eq_dialog_title"
             android:screenOrientation="portrait">
             <intent-filter>

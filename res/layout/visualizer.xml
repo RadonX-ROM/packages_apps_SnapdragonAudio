@@ -48,5 +48,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         android:layout_width="match_parent"
         android:layout_height="@dimen/eq_text_height"
         android:layout_gravity="bottom"
-        android:gravity="center" />
+        android:gravity="center"
+        android:alpha="0.54"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black" />
 </LinearLayout>

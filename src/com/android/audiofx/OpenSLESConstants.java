@@ -65,8 +65,7 @@ public final class OpenSLESConstants {
     /**
      * The maximum reverb decay time in ms.
      */
-    // XXX: OpenSL ES is normally 20000 but can only support 7000 for now
-    public static final short REVERB_MAX_DECAY_TIME = 7000;
+    public static final short REVERB_MAX_DECAY_TIME = 20000;
     /**
      * The minimum reverb decay HF ratio in o/oo.
      */

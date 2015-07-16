@@ -51,25 +51,18 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         android:src="@drawable/knob_toggle_off"
         android:visibility="gone" />
 
-    <LinearLayout android:visibility="gone"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/knob_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
-        <TextView
-            android:id="@+id/knob_label"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:textAlignment="center"
-            android:ellipsize="marquee"
-            android:visibility="gone" />
-    </LinearLayout>
+   </LinearLayout>
 
 </FrameLayout>

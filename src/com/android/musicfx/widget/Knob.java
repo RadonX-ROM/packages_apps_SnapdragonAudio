@@ -75,7 +75,6 @@ public class Knob extends FrameLayout {
 
     private final Paint mPaint;
 
-    private final TextView mLabelTV;
     private final TextView mProgressTV;
 
     private final ImageView mKnobOn;
@@ -114,9 +113,6 @@ public class Knob extends FrameLayout {
         mDisabledColor = res.getColor(R.color.disabled_knob);
 
         ((ImageView) findViewById(R.id.knob_foreground)).setImageResource(R.drawable.knob);
-
-        mLabelTV = (TextView) findViewById(R.id.knob_label);
-        mLabelTV.setText(label);
         mProgressTV = (TextView) findViewById(R.id.knob_value);
 
         mKnobOn = (ImageView) findViewById(R.id.knob_toggle_on);
@@ -209,7 +205,6 @@ public class Knob extends FrameLayout {
             mOn = on;
         }
         on = on && mEnabled;
-        mLabelTV.setTextColor(on ? mHighlightColor : mDisabledColor);
         mProgressTV.setTextColor(on ? mHighlightColor : mDisabledColor);
         setProgressText(on);
         mPaint.setColor(on ? mHighlightColor : mDisabledColor);
@@ -265,13 +260,7 @@ public class Knob extends FrameLayout {
         }
 
         mProgressTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, size * TEXT_SIZE);
-        mProgressTV.setPadding(0, (int) (size * TEXT_PADDING), 0, 0);
-        mProgressTV.setVisibility(View.GONE);
-        mLabelTV.setTextSize(TypedValue.COMPLEX_UNIT_PX, size * LABEL_SIZE);
-        mLabelTV.setPadding(0, (int) (size * LABEL_PADDING), 0, 0);
-        mLabelTV.setLayoutParams(new LinearLayout.LayoutParams((int) (w * LABEL_WIDTH),
-                    LayoutParams.WRAP_CONTENT));
-        mLabelTV.setVisibility(View.GONE);
+        mProgressTV.setVisibility(View.VISIBLE);
     }
 
     @Override

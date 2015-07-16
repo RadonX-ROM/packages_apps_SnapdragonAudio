@@ -15,7 +15,7 @@
 -->
 
 <resources>
-    <string name="app_name">MusicFX</string>
+    <string name="app_name">Snapdragon Audio+</string>
 
     <!-- ControlPanelMusic strings -->
     <string name="no_effects">Effects not available.</string>

@@ -116,6 +116,7 @@ public class ActivityMusic extends Activity {
 
     private boolean mIsHeadsetOn = false;
     private boolean mIsSpeakerOn = false;
+    private boolean mIsComboDevice = false;
     private ToggleButton mToggleSwitch;
     private TextView toggleSwithText;
     private StringBuilder mFormatBuilder = new StringBuilder();
@@ -162,6 +163,7 @@ public class ActivityMusic extends Activity {
 
             mIsHeadsetOn = false;
             mIsSpeakerOn = false;
+            mIsComboDevice = false;
 
             int device = am.getDevicesForStream(AudioManager.STREAM_MUSIC);
             if (device == AudioManager.DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES ||
@@ -171,6 +173,9 @@ public class ActivityMusic extends Activity {
                 mIsHeadsetOn = true;
              } else if (device == AudioManager.DEVICE_OUT_SPEAKER) {
                 mIsSpeakerOn = true;
+             } else if (device == (AudioManager.DEVICE_OUT_SPEAKER |
+                                   AudioManager.DEVICE_OUT_WIRED_HEADPHONE)) {
+               mIsComboDevice = true;
              }
 
              Log.v(TAG, "onAudioPortListUpdate: device=" + device);
@@ -330,7 +335,11 @@ public class ActivityMusic extends Activity {
                     @Override
                     public boolean onSwitchChanged(final Knob knob, boolean on) {
                         if (on && !mIsHeadsetOn) {
-                            showHeadsetMsg();
+                            if(mIsComboDevice) {
+                               showHeadsetMsg(getString(R.string.combo_device));
+                            } else {
+                               showHeadsetMsg(getString(R.string.headset_plug));
+                            }
                             return false;
                         }
                         ControlPanelEffect.setParameterBoolean(mContext, mCallingPackageName,
@@ -361,7 +370,11 @@ public class ActivityMusic extends Activity {
                     @Override
                     public boolean onSwitchChanged(final Knob knob,boolean on) {
                         if (on && !mIsHeadsetOn  && !mIsSpeakerOn) {
-                            showHeadsetMsg();
+                            if(mIsComboDevice) {
+                               showHeadsetMsg(getString(R.string.combo_device));
+                            } else {
+                               showHeadsetMsg(getString(R.string.headset_plug));
+                            }
                             return false;
                         }
                         ControlPanelEffect.setParameterBoolean(mContext, mCallingPackageName,
@@ -797,11 +810,11 @@ public class ActivityMusic extends Activity {
     /**
      * Show msg that headset needs to be plugged.
      */
-    private void showHeadsetMsg() {
+    private void showHeadsetMsg(String message) {
         final Context context = getApplicationContext();
         final int duration = Toast.LENGTH_SHORT;
 
-        final Toast toast = Toast.makeText(context, getString(R.string.headset_plug), duration);
+        final Toast toast = Toast.makeText(context, message, duration);
         toast.setGravity(Gravity.CENTER, toast.getXOffset() / 2, toast.getYOffset() / 2);
         toast.show();
     }

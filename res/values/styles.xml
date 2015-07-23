@@ -31,7 +31,7 @@
     </style>
 
     <style name="EqTheme"
-           parent="@android:style/Theme.Material">
+           parent="@android:style/Theme.Material.Light">
         <item name="android:colorPrimary">@color/highlight</item>
         <item name="android:colorPrimaryDark">@color/lowlight</item>
         <item name="android:colorAccent">@color/highlight</item>

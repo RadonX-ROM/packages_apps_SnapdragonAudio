@@ -43,7 +43,7 @@
                 <action
                     android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
                 <category
-                    android:name="android.intent.category.LAUNCHER" />
+                    android:name="android.intent.category.DEFAULT" />
                 <category
                     android:name="android.intent.category.CATEGORY_CONTENT_MUSIC" />
             </intent-filter>
@@ -89,7 +89,7 @@
             <intent-filter
                 android:priority="2147483647">
                 <action android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 

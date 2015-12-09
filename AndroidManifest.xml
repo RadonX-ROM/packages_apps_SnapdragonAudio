@@ -43,7 +43,7 @@
                 <action
                     android:name="android.media.action.DISPLAY_AUDIO_EFFECT_CONTROL_PANEL" />
                 <category
-                    android:name="android.intent.category.DEFAULT" />
+                    android:name="android.intent.category.LAUNCHER" />
                 <category
                     android:name="android.intent.category.CATEGORY_CONTENT_MUSIC" />
             </intent-filter>
